@@ -1,6 +1,9 @@
 //React dependencies
 import React, { Component } from 'react'
 
+//styled
+import Outer from './styled/Outer.js'
+
 //Components
 import Toolbar from './components/Toolbar'
 import SideDrawer from './components/SideDrawer/SideDrawer'
@@ -8,6 +11,9 @@ import Backdrop from './components/Backdrop/Backdrop'
 import AboutMe from './components/AboutMe'
 import Home from './components/Home'
 import Skills from './components/Skills'
+import Main from './components/Main'
+
+
 
 
 class App extends Component {
@@ -32,14 +38,16 @@ class App extends Component {
     }
 
     return (
-      <div style={{ height: '100%' }}>
+      <Outer>
         <Toolbar drawerClickHandler={this.drawerToggleClickHandler} />
         <SideDrawer show={this.state.sideDrawerOpen} />
         {backDrop}
-        <main style={{ marginTop: '64px' }}>
-          
-        </main>
-      </div>
+        <Main>
+          <Home />
+          <AboutMe />
+          <Skills />
+        </Main>
+      </Outer>
     );
   }
 }

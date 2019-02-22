@@ -1,6 +1,9 @@
 import React from 'react';
 
+//styled
 import './index.css';
+
+//components
 import '../SideDrawer/DrawerToggleButton';
 import DrawerToggleButton from '../SideDrawer/DrawerToggleButton';
 
