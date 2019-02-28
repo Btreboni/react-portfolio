@@ -1,5 +1,6 @@
 //React dependencies
 import React, { Component } from 'react'
+import { BrowserRouter as Router, Route} from 'react-router-dom'
 
 //styled
 import Outer from './styled/Outer.js'
@@ -14,7 +15,7 @@ import Skills from './components/Skills'
 import Main from './components/Main'
 
 
-
+//3:01 https://www.youtube.com/watch?v=eofpZPRUnP8&t=19s
 
 class App extends Component {
   state = {
@@ -43,6 +44,11 @@ class App extends Component {
         <SideDrawer show={this.state.sideDrawerOpen} />
         {backDrop}
         <Main>
+          <Router > 
+            <Route path={"home"} Component={Home}/>
+            <Route path={"about"} Component={AboutMe}/>
+            <Route path={"skills"} Component={Skills}/>
+          </Router>
           <Home />
           <AboutMe />
           <Skills />
