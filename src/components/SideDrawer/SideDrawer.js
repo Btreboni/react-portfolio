@@ -1,4 +1,5 @@
 import React from 'react'
+import { BrowserRouter as Router, Link } from 'react-router-dom'
 
 //styled
 import './SideDrawer.css'
@@ -14,16 +15,18 @@ const sideDrawer = props => {
     }
 
     return (
-        <nav className={drawerClasses}>
+        <Router>
+            <nav className={drawerClasses}>
             <div className="toolbar_toggle-button">
                 <DrawerToggleButton click={props.drawerClickHandler} />
             </div>
             <ul>
-                <li><a href="/">About Me</a></li>
-                <li><a href="/skills">Skills</a></li>
-                <li><a href="/games">Games</a></li>
+                <li><Link to="/">Home</Link></li>
+                <li><Link to="/about">About Me</Link></li>
+                <li><Link to="/skills">Skills</Link></li>
             </ul>
         </nav>
+        </Router>
     );
 };
 

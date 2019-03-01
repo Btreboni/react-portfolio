@@ -10,6 +10,10 @@ export default class Home extends PureComponent{
         }
     }
 
+    componentDidMount(){
+        console.log("HOME");
+    }
+
     render(){
         return(
             <div>

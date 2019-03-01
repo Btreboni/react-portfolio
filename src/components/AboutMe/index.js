@@ -14,6 +14,7 @@ export default class AboutMe extends PureComponent{
         return(
             <div>
                 <p>About Me!</p>
+                <h1>I"M HERE!</h1>
             </div>
         )
     }

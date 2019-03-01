@@ -1,6 +1,6 @@
 //React dependencies
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Route} from 'react-router-dom'
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 
 //styled
 import Outer from './styled/Outer.js'
@@ -32,6 +32,15 @@ class App extends Component {
     this.setState({ sideDrawerOpen: false })
   }
 
+  renderHome = (props) =>
+    <Home />
+
+  renderAboutMe = (props) =>
+    <AboutMe />
+
+    renderSkills = (props) =>
+    <Skills />
+
   render() {
     let backDrop;
     if (this.state.sideDrawerOpen) {
@@ -40,19 +49,20 @@ class App extends Component {
 
     return (
       <Outer>
-        <Toolbar drawerClickHandler={this.drawerToggleClickHandler} />
-        <SideDrawer show={this.state.sideDrawerOpen} />
-        {backDrop}
-        <Main>
-          <Router > 
-            <Route path={"home"} Component={Home}/>
-            <Route path={"about"} Component={AboutMe}/>
-            <Route path={"skills"} Component={Skills}/>
-          </Router>
-          <Home />
-          <AboutMe />
-          <Skills />
-        </Main>
+        <Router>
+          <div>
+            <Toolbar drawerClickHandler={this.drawerToggleClickHandler} />
+            <SideDrawer show={this.state.sideDrawerOpen} />
+            {backDrop}
+            <Main>
+              <Switch>
+                <Route exact path="/" Component={this.renderHome} />
+                <Route path="/about" render={this.renderAboutMe} />
+                <Route path={"/skills"} render={this.renderSkills} />
+              </Switch>
+            </Main>
+          </div>
+        </Router>
       </Outer>
     );
   }
