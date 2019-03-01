@@ -1,6 +1,6 @@
 //React dependencies
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 //styled
 import Outer from './styled/Outer.js'
@@ -38,7 +38,7 @@ class App extends Component {
   renderAboutMe = (props) =>
     <AboutMe />
 
-    renderSkills = (props) =>
+  renderSkills = (props) =>
     <Skills />
 
   render() {
@@ -56,7 +56,8 @@ class App extends Component {
             {backDrop}
             <Main>
               <Switch>
-                <Route exact path="/" Component={this.renderHome} />
+                <Route exact path="/home" Component={Home} />
+                <Route path="/home" render={this.renderHome} />
                 <Route path="/about" render={this.renderAboutMe} />
                 <Route path={"/skills"} render={this.renderSkills} />
               </Switch>

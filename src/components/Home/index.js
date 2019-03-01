@@ -17,7 +17,7 @@ export default class Home extends PureComponent{
     render(){
         return(
             <div>
-                <p>Home!</p>
+                <h1>HOME!</h1>
             </div>
         )
     }
